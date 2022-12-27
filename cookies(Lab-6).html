@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Easiest Way to Add Input Masks to Your Forms</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  
+<style>
+    body{
+    background-color: #dee9ff;
+}
+
+.registration-form{
+	padding: 50px 0;
+}
+
+.registration-form form{
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .form-icon{
+	text-align: center;
+    background-color: #5891ff;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 100px;
+}
+
+.registration-form .item{
+	border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+}
+
+.registration-form .create-account{
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.registration-form .social-media{
+    max-width: 600px;
+    background-color: #fff;
+    margin: auto;
+    padding: 35px 0;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: #9fadca;
+    border-top: 1px solid #dee9ff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .social-icons{
+    margin-top: 30px;
+    margin-bottom: 16px;
+}
+
+.registration-form .social-icons a{
+    font-size: 23px;
+    margin: 0 3px;
+    color: #5691ff;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 45px;
+    display: inline-block;
+    height: 45px;
+    text-align: center;
+    background-color: #fff;
+    line-height: 45px;
+}
+
+.registration-form .social-icons a:hover{
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+@media (max-width: 576px) {
+    .registration-form form{
+        padding: 50px 20px;
+    }
+
+    .registration-form .form-icon{
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        line-height: 70px;
+    }
+}
+</style>
+</head>
+<body>
+    
+    <div style="padding-left: 92%">
+        <select  id="demo" onchange="show()">
+        <option value="#f2e9e4">lightpink</option>
+        <option value="#c0a190">Grey</option>
+            <option value="#bec090">Green</option>
+    </select>    
+    </div>
+    <div class="registration-form">
+        <form name="myform" action="vehicle mang.html" onsubmit="validate()">
+            <div class="form-icon">
+                <span><i class="icon icon-user"></i></span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" id="uname" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control item" id="pass" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control item" id="birth-date" placeholder="Birth Date">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control item" id="age" placeholder="age">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block create-account" onclick="writecookie()"> Submit</button>
+            </div>
+        </form>
+        <div class="social-media">
+            <h5>Sign up with social media</h5>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><i class="icon-social-facebook" title="Facebook"></i></a>
+                <a href=""><i class="icon-social-google" title="Google"></i></a>
+                <a href="https://twitter.com/i/flow/login"><i class="icon-social-twitter" title="Twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <input type="button" value="Get Cookie" onclick="getCookie()">
+    <input type="button" value="Delete Cookie" onclick="deleteCookie()">
+
+    <script>
+        function validate()
+        {
+            window.uname=document.getElementById("uname").value;
+            window.pass=document.getElementById("pass").value;
+            var age=document.getElementById("age").value;
+            var mail=document.getElementById("email").value;
+            var phone=document.getElementById("phone-number").value;
+            var regx= /^([a-zA-z0-9\._]+)@([a-zA-z0-9])+.([a-z]+)(.[in]+)$/
+            var input=/^\d{10}$/;
+            var nameRegex = /^[a-zA-Z\-]+$/;
+            window.age=document.getElementById("age").value;
+            
+
+
+            if(uname.trim()=="" || pass.trim()=="" || age.trim()=="")
+            {
+                alert("Missing Credentials");
+            }
+            if(regx.test(mail)){
+                alert("You have provided a valid email id")
+            }
+            else{
+                alert("Sorry! incorrect Email id")
+                
+            }
+
+            if(phone.match(input))
+            {
+                
+            }
+            else
+            {
+                alert("Invalid Phone Number");
+                
+            }
+            var passw= "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})";
+if(pass.match(passw)) 
+{ 
+alert('Correct,Password created succesfully')
+
+}
+else
+{ 
+alert('Passwords must contain:\na minimum of 1 lower case letter [a-z] and\na minimum of 1 upper case letter [A-Z] and\na minimum of 1 numeric character [0-9] and\n1 special character: ~`!@#$%^&*()-_+={}[]|\;:<>,./?\nat least 1 upper case, numeric, and special character must be EMBEDDED somewhere in the middle of the password, and not just be the first or the last character of the password string.')
+
+}
+
+  if(uname.match(nameRegex)){
+    alert("Correct Username Entered")
+  }
+  else
+  {
+    alert("Incorrect Username entered")
+  }
+
+
+
+        }
+    
+    function writecookie(){
+        if(document.myform.uname.value==" "){
+            alert("Enter some value!");
+            return;
+        }
+        var now=new Date();
+        now.setTime(now.getTime() +1*360*1000);
+        cookiename=escape(uname.value)+";";
+        document.cookie="name="+cookiename;
+        cookiepassword=encodeURIComponent(pass.value)+";";
+        document.cookie="password="+decodeURIComponent(cookiepassword);expires="Thu, 18 Dec 2023 12:00:00 UTC";
+        cookieage=escape(age.value)+";";
+        document.cookie="age="+cookieage;expires="Thu, 18 Dec 2023 12:00:00 UTC";
+        let key="age"
+        localStorage.setItem(key,cookieage);
+        let key1="name"
+        sessionStorage.setItem(key1,cookiename);
+
+
+    }
+    function getCookie()
+    {
+        if(document.cookie.length!=0)
+        {
+            alert(document.cookie);
+        }
+        else
+        {
+            alert("Cookies are not available")
+        }
+    }
+    function deleteCookie()
+    {
+        var allCookies=document.cookie.split(";");
+        for(var i=0;i<allCookies.length;i++)
+        document.cookie=allCookies[i]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+
+
+    }
+    function show()
+    {
+        var value=document.getElementById("demo").value;
+        if(value!="Select Color")
+        {
+            document.body.style.backgroundColor=value;
+            document.cookie="color="+value;
+        }
+    }
+        window.onload=function()
+        {
+            if(document.cookie.length!=0)
+            {
+                var a=document.cookie.split("=#");
+               document.getElementById("demo").value=a[1];
+               
+                document.body.style.backgroundColor="#"+a[1];
+            }
+        }
+    
+
+
+        
+        
+
+
+             
+
+        
+    </script>
+</body>
+</html>
